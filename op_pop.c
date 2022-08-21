@@ -16,4 +16,5 @@ void op_pop(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next != NULL)
 		(*stack)->next->prev = (*stack)->prev;
 	(*stack) = (*stack)->next;
+	free(*stack);
 }
