@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 			}
 			i++;
 		}
-		line_number ++;
+		line_number++;
 	}
 	free(line);
 	return (0);
