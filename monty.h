@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 
 #include <stdio.h>
 #include <stddef.h>
@@ -41,6 +42,8 @@ typedef struct instruction_s
 } instruction_t;
 
 extern unsigned int line_number;
+void op_pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
 
 
 
