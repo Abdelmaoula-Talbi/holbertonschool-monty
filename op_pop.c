@@ -6,14 +6,14 @@
  * @line_number:line number
  * Return: Nothing
  */
-void op_pop(stack_t **stack, _attribute_((unused)) unsigned int line_number)
+void op_pop(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	if ((*stack) == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop and empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->next->prev = (*stack)->prev;
+	if ((*stack)->next != NULL)
 			(*stack)->next->prev = (*stack)->prev;
 	(*stack) = (*stack)->next;
 }
