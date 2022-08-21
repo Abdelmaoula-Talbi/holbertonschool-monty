@@ -6,7 +6,7 @@
  * @line_number: line number
  * Return: Nothing
  */
-void op_pall(stack_t **stack, _attribute_((unused)) line_number)
+void op_pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	while ((*stack) != NULL)
 	{
