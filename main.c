@@ -11,16 +11,16 @@ int main(int argc, char *argv[])
 	instruction_t opcodes[] = {
 		{"pall", op_pall},
 		{"pint", op_pint},
-		/*{"pop", op_pop},
+		{"pop", op_pop},
 		{"swap", op_swap},
 		{"add", op_add},
-		{"nop", op_nop},*/
+		{"nop", op_nop},
 		{NULL, NULL}
 	};
 	unsigned int line_number = 1;
 	int i, j;
-	FILE *fd_open/*, *fd_read*/;
-	char *line, *token/*, *buff_read*/;
+	FILE *fd_open;
+	char *line, *token;
 	char **tokens;
 	size_t len = 0;
 	stack_t *new;
@@ -37,13 +37,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n",argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	/*buff_read = malloc(1024);
-	fd_read = read(fd_open, buff_read, 1024);
-	if (buff_read == NULL || fd_read == -1)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}*/
 	while (getline(&line, &len, fd_open) != - 1)
 	{
 		j = 0;
@@ -71,7 +64,7 @@ int main(int argc, char *argv[])
 			(*stack) = new;
 		}
 		i = 0;
-		while (i < 2/*6*/)
+		while (i < 6)
 		{
 			if (strcmp(tokens[0], opcodes[i].opcode) == 0)
 				opcodes[i].f(stack, line_number);
@@ -84,8 +77,6 @@ int main(int argc, char *argv[])
 		}
 		line_number ++;
 	}
-	/*free(buff_read);
-	close(fd_open);*/
 	free(line);
 	return (0);
 }
