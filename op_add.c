@@ -1,18 +1,28 @@
 #include "monty.h"
 
 /**
- * op_add - adds the top two elements of the stack.
- * @stack: stack to add its top two elements.
- * @line_number: unused variable for the line number where add opcode appears
- * Return: Nothing
+ * add - adds 2 nodes of stack
+ * @h: head of the stack
+ * @ln: line number
+ * Return: void
  */
-void op_add(stack_t **stack, unsigned int line_number)
+void add(stack_t **h, unsigned int ln)
 {
-	if ((*stack) == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	(*stack)->next->n += (*stack)->n;
-	op_pop(stack, line_number);
+	unsigned int j;
+	stack_t *k;
+
+	if (*h == NULL || (*h)->next == NULL)
+		{
+			fprintf(stderr, "L%d: can't add, stack too short\n", ln);
+			isFail = 1;
+			return;
+
+
+	k = (*h)->next;
+
+	j = (*h)->n + k->n;
+
+	k->n = j;
+
+	pop(h, ln);
 }
